@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Image Optimizer</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<div class="app">
+  <h1>Instant Image Optimizer</h1>
+
+  <div class="dropzone" id="dropzone">
+    Drop image here or click
+  </div>
+
+  <div class="controls">
+    <select id="format">
+      <option value="image/webp">WebP</option>
+      <option value="image/avif">AVIF</option>
+      <option value="image/jpeg">JPEG</option>
+    </select>
+
+    <input type="range" id="quality" min="0.3" max="1" step="0.05" value="0.85"/>
+    <input type="number" id="maxWidth" min="0" step="1" placeholder="Max width (px)" />
+  </div>
+
+  <div class="viewer">
+    <div class="badge badge--original" id="badgeOriginal">Original</div>
+    <canvas id="original"></canvas>
+    <div class="overlay" id="overlay">
+      <div class="badge badge--optimized" id="badgeOptimized">Optimized</div>
+      <canvas id="optimized"></canvas>
+    </div>
+    <div class="handle" id="handle"></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat" id="originalSize">-</div>
+    <div class="stat" id="optimizedSize">-</div>
+    <div class="stat" id="reduction">-</div>
+    <div class="stat" id="dimensions">-</div>
+    <div class="stat" id="outputFormat">-</div>
+  </div>
+
+  <div class="notice" id="notice" role="status" aria-live="polite"></div>
+
+  <button id="download">Download</button>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
